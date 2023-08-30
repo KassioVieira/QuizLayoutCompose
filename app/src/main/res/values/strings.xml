@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QuizAppAndroid</string>
+    <string name="welcome">Hi, Kassio</string>
+    <string name="message">Let’s make this day productive</string>
+    <string name="profile_picture_description">profile picture</string>
+    <string name="points">Points</string>
+    <string name="ranking">Ranking</string>
+</resources>
