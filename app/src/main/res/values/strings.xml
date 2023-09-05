@@ -5,4 +5,7 @@
     <string name="profile_picture_description">profile picture</string>
     <string name="points">Points</string>
     <string name="ranking">Ranking</string>
+    <string name="ranking_position">348</string>
+    <string name="poins_value">1209</string>
+    <string name="let_s_play">Let\'s Play</string>
 </resources>
