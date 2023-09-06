@@ -54,12 +54,21 @@ fun previewSubjectItem() {
 @Composable
 fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Boolean) {
     var dynamicHeight = if (isShort) 155.dp else 185.dp
+    var topDistance = if (isShort) 60.dp else 90.dp
 
     Box (
         modifier = Modifier
             .width(155.dp)
             .height(dynamicHeight)
     ){
+        Image(
+            painter = painterResource(icon),
+            contentDescription = stringResource(icon),
+            modifier = Modifier
+                .size(90.dp)
+                .padding(start = 26.dp)
+                .offset(y = (-14).dp).zIndex(1f)
+        )
         Card (
             modifier = Modifier
                 .padding(vertical = 10.dp, horizontal = 16.dp)
@@ -70,15 +79,7 @@ fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Bool
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .background(Color.White)){
-                Image(
-                    painter = painterResource(icon),
-                    contentDescription = stringResource(icon),
-                    modifier = Modifier
-                        .size(90.dp)
-                        .padding(start = 16.dp)
-                        .offset(y = (-18).dp)
-                )
-                Box (modifier = Modifier.padding(start = 16.dp)){
+                Box (modifier = Modifier.padding(start = 16.dp, top = topDistance)){
                     Text(
                         text = subject,
                         style = TextStyle(
