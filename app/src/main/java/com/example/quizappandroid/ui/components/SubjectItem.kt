@@ -1,7 +1,10 @@
 package com.example.quizappandroid.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -45,14 +48,16 @@ fun previewSubjectItem() {
             color = MaterialTheme.colorScheme.background
         ){
             Column {
-                SubjectItem("Sports", R.drawable.coin, 50, false)
+                SubjectItem("Sports", R.drawable.coin, 50, false) {
+
+                }
             }
         }
     }
 }
 
 @Composable
-fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Boolean) {
+fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Boolean, onItemClick: SubjectItemClickCallback) {
     var dynamicHeight = if (isShort) 155.dp else 185.dp
     var topDistance = if (isShort) 60.dp else 90.dp
 
@@ -76,6 +81,7 @@ fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Bool
                 .shadow(elevation = 5.dp)){
 
             Column (modifier = Modifier
+                .clickable { onItemClick()  }
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .background(Color.White)){
@@ -103,3 +109,5 @@ fun SubjectItem (subject: String, icon: Int, numberQuestions: Int, isShort: Bool
         }
     }
 }
+
+typealias SubjectItemClickCallback = () -> Unit
